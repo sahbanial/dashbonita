@@ -23,3 +23,13 @@ export const SERVICES = {
   FINANCIAL_SERVICE: "FINANCIAL_SERVICE",
   EXECUTIVE_MANAGMENT: "EXECUTIVE_MANAGMENT",
 };
+export const LocationServices = {
+  OFFICE_ORDER: "B.O.C",
+  ADMINISTRATIVE_DEPARTMENT: "Service administartif",
+  FINANCIAL_DIRECTION: "Direction administrative financiere",
+  ACCOUNTING_DEPARTMENT: "Service comptabilité",
+  TAX_DEPARTMENT: "Service fiscalité",
+  SCHEDILING_SERVICE: "Service d'ordonnacement",
+  FINANCIAL_SERVICE: "Service financier",
+  EXECUTIVE_MANAGMENT: "direction generale",
+};

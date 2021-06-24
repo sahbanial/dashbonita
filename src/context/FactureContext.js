@@ -49,6 +49,7 @@ const FactureProvider = (props) => {
       value={{
         saveFacture,
         data: dataFiltred(data?.data?.nodes),
+        allData: data?.data?.nodes,
         handleSelectFacture,
         selectedFacture,
         updateFacture,
