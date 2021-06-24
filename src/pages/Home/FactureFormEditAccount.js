@@ -30,7 +30,7 @@ export default function FactureFormEditAccount() {
           /* and other goodies */
         }) => (
           <Form onSubmit={handleSubmit}>
-            <h3>Validation facture</h3>
+            <h3>Comptabilisation facture</h3>
             <FormGroup>
               <Label>Numero de facture</Label>
               <Input

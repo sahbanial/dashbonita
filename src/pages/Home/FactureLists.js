@@ -25,7 +25,7 @@ export default function FactureLists() {
       "Facture(PDF)",
       "Date de reception",
       "Status",
-      "Action",
+      "Traiter",
     ];
     return cols?.map((col) => <th className="p-2">{col}</th>);
   };

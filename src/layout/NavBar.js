@@ -3,6 +3,7 @@ import { Col, Row } from "reactstrap";
 import logo from "../assets/images/logo.png";
 import defaultUser from "../assets/images/default-user.png";
 import { useAuthContext } from "../context/AuthContext";
+import { Lock } from "react-feather";
 export default function NavBar() {
   const { currentUser } = useAuthContext();
   return (
@@ -28,6 +29,15 @@ export default function NavBar() {
                 <div>
                   <img src={defaultUser} className="user-img" />
                   <span className="font-weight-600">Utilisateur</span>
+                  <div
+                    onClick={() => {
+                      localStorage.removeItem("token");
+                      localStorage.removeItem("user");
+                      window.location.reload();
+                    }}
+                  >
+                    <Lock size={16} />
+                  </div>
                 </div>
               </Col>
             </Row>
