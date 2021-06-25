@@ -233,7 +233,7 @@ export default function FactureLists() {
           </div>
         </div>
         <Table striped>
-          <thead>{renderHeader()}</thead>
+          <thead>{renderHeader2()}</thead>
           <tbody>{renderData()}</tbody>
         </Table>
       </div>
