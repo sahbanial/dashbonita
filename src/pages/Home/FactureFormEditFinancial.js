@@ -93,11 +93,11 @@ export default function FactureFormEditFinancial() {
                   updateFacture({
                     id: selectedFacture?.id,
                     status: "APPROVED_SERVICE_FINANCIAL",
-                    location: "ADMINISTRATIVE_DEPARTMENT",
+                    location: "FINANCIAL_DIRECTION",
                   })
                 }
               >
-                Edition terminé
+                Edition terminée
               </Button>
             </div>
           </Form>
