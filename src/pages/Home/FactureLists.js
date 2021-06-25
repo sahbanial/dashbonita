@@ -30,6 +30,19 @@ export default function FactureLists() {
     ];
     return cols?.map((col) => <th className="p-2">{col}</th>);
   };
+  const renderHeader2 = () => {
+    const cols = [
+      "Identifiant",
+      "Destination",
+      "Montant(DT)",
+      "Facture(PDF)",
+      "Date de reception",
+      "Status",
+
+      "Traiter",
+    ];
+    return cols?.map((col) => <th className="p-2">{col}</th>);
+  };
   const renderData = () => {
     return data?.map((item) => (
       <tr className="p-2">
@@ -125,12 +138,7 @@ export default function FactureLists() {
               <span className="text-black">{FactureStatus[item?.status]}</span>
             </div>
           </td>
-          <td>
-            <div className="badge">
-              {" "}
-              <span className="text-black"></span>
-            </div>
-          </td>
+
           <td>
             <div className="d-flex">
               <div className="cursor-pointer">
