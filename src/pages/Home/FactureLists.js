@@ -128,9 +128,7 @@ export default function FactureLists() {
           <td>
             <div className="badge">
               {" "}
-              <span className="text-black">
-                {LocationServices[item?.location]}
-              </span>
+              <span className="text-black"></span>
             </div>
           </td>
           <td>
