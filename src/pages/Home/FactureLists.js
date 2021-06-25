@@ -186,7 +186,7 @@ export default function FactureLists() {
         </Table>
       </div>
 
-      {["ADMINISTRATIVE_DEPARTMENT", "EXECUTIVE_MANAGMENT"].includes(
+      {["ADMINISTRATIVE_DEPARTMENT", "FINANCIAL_DIRECTION"].includes(
         currentUser?.role
       ) && (
         <div className="mt-3">
@@ -202,7 +202,9 @@ export default function FactureLists() {
           </Table>
         </div>
       )}
-      {["ADMINISTRATIVE_DEPARTMENT"].includes(currentUser?.role) && (
+      {["ADMINISTRATIVE_DEPARTMENT", "FINANCIAL_DIRECTION"].includes(
+        currentUser?.role
+      ) && (
         <div className="mt-3">
           <div className="list-header d-flex align-items-center">
             <span>Suivie de facture</span>
