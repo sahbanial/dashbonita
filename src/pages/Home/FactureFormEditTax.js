@@ -30,7 +30,7 @@ export default function FactureFormEditTax() {
           /* and other goodies */
         }) => (
           <Form onSubmit={handleSubmit}>
-            <h3>Retenu à la source facture</h3>
+            <h3>Retenue à la source facture</h3>
             <FormGroup>
               <Label>Numero de facture</Label>
               <Input
@@ -97,7 +97,7 @@ export default function FactureFormEditTax() {
                   })
                 }
               >
-                Edition terminé
+                Tâche terminé
               </Button>
             </div>
           </Form>
