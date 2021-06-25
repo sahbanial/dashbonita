@@ -118,8 +118,8 @@ export default function FactureFormEditFinancialDirection() {
                   onClick={() =>
                     updateFacture({
                       id: selectedFacture?.id,
-                      status: "APPROVED_ADMINISTRATIF",
-                      location: "FINANCIAL_DIRECTION",
+                      status: "APPROVED",
+                      location: "ACCOUNTING_DEPARTMENT",
                     })
                   }
                 >
@@ -131,19 +131,11 @@ export default function FactureFormEditFinancialDirection() {
                 <Button
                   color="success"
                   onClick={() => {
-                    if (selectedFacture?.amount > 5000)
-                      updateFacture({
-                        id: selectedFacture?.id,
-                        status: "APPROVED_ADMINISTRATIF",
-                        location: "EXECUTIVE_MANAGMENT",
-                      });
-                    else {
-                      updateFacture({
-                        id: selectedFacture?.id,
-                        status: "FINAL_APPROVED",
-                        location: "OFFICE_ORDER",
-                      });
-                    }
+                    updateFacture({
+                      id: selectedFacture?.id,
+                      status: "APPROVED",
+                      location: "ACCOUNTING_DEPARTMENT",
+                    });
                   }}
                 >
                   {" "}
@@ -151,22 +143,6 @@ export default function FactureFormEditFinancialDirection() {
                 </Button>
               </div>
             )}
-            <div className="mt-2 flex-center">
-              <Button
-                type="button"
-                color="success"
-                className="ml-05"
-                onClick={() =>
-                  updateFacture({
-                    id: selectedFacture?.id,
-                    status: "APPROVED",
-                    location: "ACCOUNTING_DEPARTMENT",
-                  })
-                }
-              >
-                Edition terminé
-              </Button>
-            </div>
           </Form>
         )}
       </Formik>
