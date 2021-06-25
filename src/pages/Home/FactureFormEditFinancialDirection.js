@@ -83,6 +83,74 @@ export default function FactureFormEditFinancialDirection() {
                 disabled={true}
               />
             </FormGroup>
+            {selectedFacture?.status !== "APPROVED_SERVICE_FINANCIAL" ? (
+              <div className="mt-2 flex-center">
+                <Button
+                  type="button"
+                  color="danger"
+                  disabled={isSubmitting}
+                  onClick={() =>
+                    updateFacture({
+                      id: selectedFacture?.id,
+                      status: "REFUSED",
+                    })
+                  }
+                >
+                  Refuse
+                </Button>
+                <Button
+                  type="button"
+                  color="info"
+                  className="m-1"
+                  onClick={() =>
+                    updateFacture({
+                      id: selectedFacture?.id,
+                      status: "IN_INSTANCE",
+                    })
+                  }
+                >
+                  Mettre en instance
+                </Button>
+                <Button
+                  type="button"
+                  color="success"
+                  className="ml-05"
+                  onClick={() =>
+                    updateFacture({
+                      id: selectedFacture?.id,
+                      status: "APPROVED_ADMINISTRATIF",
+                      location: "FINANCIAL_DIRECTION",
+                    })
+                  }
+                >
+                  Accepter
+                </Button>
+              </div>
+            ) : (
+              <div className="mt-2 flex-center">
+                <Button
+                  color="success"
+                  onClick={() => {
+                    if (selectedFacture?.amount > 5000)
+                      updateFacture({
+                        id: selectedFacture?.id,
+                        status: "APPROVED_ADMINISTRATIF",
+                        location: "EXECUTIVE_MANAGMENT",
+                      });
+                    else {
+                      updateFacture({
+                        id: selectedFacture?.id,
+                        status: "FINAL_APPROVED",
+                        location: "OFFICE_ORDER",
+                      });
+                    }
+                  }}
+                >
+                  {" "}
+                  Edition terminer
+                </Button>
+              </div>
+            )}
             <div className="mt-2 flex-center">
               <Button
                 type="button"
