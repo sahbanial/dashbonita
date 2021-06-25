@@ -109,7 +109,7 @@ export default function FactureFormEditSchudle() {
                   })
                 }
               >
-                Edition terminé
+                Tâche terminé
               </Button>
             </div>
           </Form>
