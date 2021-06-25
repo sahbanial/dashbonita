@@ -30,7 +30,7 @@ export default function FactureFormEditOffice() {
           /* and other goodies */
         }) => (
           <Form onSubmit={handleSubmit}>
-            <h3>Validation facture</h3>
+            <h3>Envoie cheque ou ordre de virement</h3>
             <FormGroup>
               <Label>Numero de facture</Label>
               <Input
@@ -97,7 +97,7 @@ export default function FactureFormEditOffice() {
                   })
                 }
               >
-                Edition terminer
+                Facture envoyer
               </Button>
             </div>
           </Form>
