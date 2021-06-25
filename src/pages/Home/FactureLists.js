@@ -105,6 +105,52 @@ export default function FactureLists() {
         </tr>
       ));
   };
+  const renderFactSigne = () => {
+    return allData
+      ?.filter((fact) => fact.status === "APPROVED_SERVICE_FINANCIAL")
+      ?.map((item) => (
+        <tr className="p-2">
+          <td className="p-2">{item?.num}</td>
+          <td>{item?.destination}</td>
+          <td>{item?.amount}</td>
+          <td>
+            <a target="_blank" href={`${API}/facture/files/${item?.file}`}>
+              Voir Facture
+            </a>
+          </td>
+          <td>{moment(item?.receptionDate).format("DD/MM/YYYY")}</td>
+          <td>
+            <div className="badge">
+              {" "}
+              <span className="text-black">{FactureStatus[item?.status]}</span>
+            </div>
+          </td>
+          <td>
+            <div className="badge">
+              {" "}
+              <span className="text-black">
+                {LocationServices[item?.location]}
+              </span>
+            </div>
+          </td>
+          <td>
+            <div className="d-flex">
+              <div className="cursor-pointer">
+                <a target="_blank" href={`${API}/facture/files/${item?.file}`}>
+                  <Eye size={16} color="black" />
+                </a>
+              </div>
+              <div
+                className="cursor-pointer ml-05"
+                onClick={() => handleSelectFacture(item)}
+              >
+                <Edit size={16} color="black" />
+              </div>
+            </div>
+          </td>
+        </tr>
+      ));
+  };
   const renderSuivie = () => {
     return allData?.map((item) => (
       <tr className="p-2">
@@ -213,6 +259,20 @@ export default function FactureLists() {
           <Table striped>
             <thead>{renderHeader()}</thead>
             <tbody>{renderSuivie()}</tbody>
+          </Table>
+        </div>
+      )}
+      {["FINANCIAL_DIRECTION"].includes(currentUser?.role) && (
+        <div className="mt-3">
+          <div className="list-header d-flex align-items-center">
+            <span>List des facture à signé</span>
+            <div className="ml-05">
+              <RotateCw size={15} />
+            </div>
+          </div>
+          <Table striped>
+            <thead>{renderHeader()}</thead>
+            <tbody>{renderFactSigne()}</tbody>
           </Table>
         </div>
       )}
