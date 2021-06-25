@@ -83,7 +83,7 @@ export default function FactureFormEditFinancialDirection() {
                 disabled={true}
               />
             </FormGroup>
-            {selectedFacture?.status === "APPROVED_SERVICE_FINANCIAL" ? (
+            {selectedFacture?.status !== "APPROVED_SERVICE_FINANCIAL" ? (
               <div className="mt-2 flex-center">
                 <Button
                   type="button"
