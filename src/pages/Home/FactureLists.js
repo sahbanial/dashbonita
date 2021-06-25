@@ -44,40 +44,50 @@ export default function FactureLists() {
     return cols?.map((col) => <th className="p-2">{col}</th>);
   };
   const renderData = () => {
-    return data?.map((item) => (
-      <tr className="p-2">
-        <td className="p-2">{item?.num}</td>
-        <td>{item?.destination}</td>
-        <td>{item?.amount}</td>
-        <td>
-          <a target="_blank" href={`${API}/facture/files/${item?.file}`}>
-            Voir Facture
-          </a>
-        </td>
-        <td>{moment(item?.receptionDate).format("DD/MM/YYYY")}</td>
-        <td>
-          <div className="badge">
-            {" "}
-            <span className="text-black">{FactureStatus[item?.status]}</span>
-          </div>
-        </td>
-        <td>
-          <div className="d-flex">
-            <div className="cursor-pointer">
-              <a target="_blank" href={`${API}/facture/files/${item?.file}`}>
-                <Eye size={16} color="black" />
-              </a>
+    return data
+      ?.filter((fac) => {
+        if (
+          fac?.status === "APPROVED_SERVICE_FINANCIAL" &&
+          currentUser?.role === "FINANCIAL_DIRECTION"
+        ) {
+          return false;
+        }
+        return true;
+      })
+      ?.map((item) => (
+        <tr className="p-2">
+          <td className="p-2">{item?.num}</td>
+          <td>{item?.destination}</td>
+          <td>{item?.amount}</td>
+          <td>
+            <a target="_blank" href={`${API}/facture/files/${item?.file}`}>
+              Voir Facture
+            </a>
+          </td>
+          <td>{moment(item?.receptionDate).format("DD/MM/YYYY")}</td>
+          <td>
+            <div className="badge">
+              {" "}
+              <span className="text-black">{FactureStatus[item?.status]}</span>
             </div>
-            <div
-              className="cursor-pointer ml-05"
-              onClick={() => handleSelectFacture(item)}
-            >
-              <Edit size={16} color="black" />
+          </td>
+          <td>
+            <div className="d-flex">
+              <div className="cursor-pointer">
+                <a target="_blank" href={`${API}/facture/files/${item?.file}`}>
+                  <Eye size={16} color="black" />
+                </a>
+              </div>
+              <div
+                className="cursor-pointer ml-05"
+                onClick={() => handleSelectFacture(item)}
+              >
+                <Edit size={16} color="black" />
+              </div>
             </div>
-          </div>
-        </td>
-      </tr>
-    ));
+          </td>
+        </tr>
+      ));
   };
   const renderDataInstance = () => {
     return data
